@@ -58,7 +58,7 @@ func UserPasswordChangeCmd() *cobra.Command {
 
 			reset.ChangePasswordView(resetView)
 
-			err = api.ResetPassword(userId, opts)
+			err = api.ResetPassword(userId, *resetView)
 			if err != nil {
 				if isUnauthorizedError(err) {
 					return fmt.Errorf("Permission denied: Admin privileges are required to execute this command.")
